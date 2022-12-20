@@ -26,6 +26,7 @@ class ComicController extends Controller
      */
     public function create()
     {
+
         return view('comics.create');
     }
 
@@ -37,7 +38,17 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        // salvare dati sul db!
+        $formData = $request->all();
+        $newComic = new Comic();
+        $newComic->title = $formData['title'];
+        $newComic->description = $formData['description'];
+        $newComic->thumb = $formData['thumb'];
+        $newComic->price = $formData['price'];
+        $newComic->series = $formData['series'];
+        $newComic->sale_date = $formData['sale_date'];
+        $newComic->type = $formData['type'];
+        $newComic->save();
+
         return redirect()->route('comics.show', ['comic' => $newComic->id]);
     }
 
