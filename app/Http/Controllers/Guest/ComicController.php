@@ -34,7 +34,6 @@ class ComicController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -56,7 +55,6 @@ class ComicController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function show(Comic $comic)
     {
@@ -67,11 +65,10 @@ class ComicController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -79,11 +76,23 @@ class ComicController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        $comic = Comic::find($id);
+
+        $formdata = $request->all();
+
+        $comic->title = $formdata['title'];
+        $comic->description = $formdata['description'];
+        $comic->thumb = $formdata['thumb'];
+        $comic->price = $formdata['price'];
+        $comic->series = $formdata['series'];
+        $comic->sale_date = $formdata['sale_date'];
+        $comic->type = $formdata['type'];
+        $comic->update();
+
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**
@@ -92,8 +101,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        return redirect()->route('comics.index');
     }
 }

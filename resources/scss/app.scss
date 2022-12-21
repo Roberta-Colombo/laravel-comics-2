@@ -1,1 +1,170 @@
-@import '~bootstrap/scss/bootstrap'
+@use  "./partials/variables" as *;
+@import '~bootstrap/scss/bootstrap';
+
+// style header
+
+.top-blue-bar {
+    background-color: $skyblue;
+    color: $white;
+}
+
+.pad-left20 {
+    padding-left: 20px;
+}
+
+nav ul li {
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+    font-size: 13px;
+    font-weight: bold;
+    color: $darkgrey;
+    line-height: 100px;
+    display: inline-block;
+}
+
+.nav-link {
+    display: inline-block;
+
+    &.active,
+    &:hover {
+      color: $skyblue;
+    }
+}
+
+input {
+    border-style: none;
+    margin-bottom: 20px;
+    border-bottom: 3px solid $skyblue;
+    width: 100px;
+}
+
+.jumbo {
+    height: 400px;
+    object-position: center;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+// style home content
+
+.home-section {
+    background-color: $greyblack;
+    color: $white;
+    position: relative;
+    height: 280px;
+}
+
+.home-section .btn-primary {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    a {
+        text-decoration: none;
+        color: $white;
+    }
+}
+
+// style footer
+
+.footer-bottom {
+    background-color: $footergrey;
+    height: 110px;
+    color: $white;
+  }
+
+  .socials {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  .footer-button {
+    border: 2px solid $skyblue;
+    background-color: transparent;
+    color: white;
+    padding: 10px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 30px;
+  }
+
+  .footer-span {
+        color: $skyblue;
+        font-weight: bold;
+        font-size: 1.3rem;
+  }
+
+  .socials img {
+    padding-left: 1.2rem;
+    cursor: pointer;
+  }
+
+
+  // style view comics.index and comics.show
+
+  .sect-comics-index {
+    padding-top: 70px;
+    background-color: $greyblack;
+  }
+
+  .card, .details {
+    background-color: $greyblack;
+    color: $white;
+  }
+
+  .details {
+    h2 {
+        color: $skyblue;
+    }
+  }
+
+  .card {
+    border-color: rgb(62, 62, 62);
+  }
+
+  .card-img-top {
+    padding-top: 15px;
+    height: 350px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .card-title{
+    height: 100px;
+  }
+
+  .card-text {
+    height: 150px;
+  }
+
+
+  // style view comics.create
+  form input {
+    margin-left: 15px;
+    width: 150px;
+  }
+
+  #sale_dateHelp {
+    margin-bottom: 20px;
+  }
+
+  .text-area {
+    margin-bottom: 20px;
+  }
+
+  textarea {
+    border-style: none;
+    border-bottom: 3px solid $skyblue;
+    height: 60px;
+  }
+
+  .create-btn {
+    border: 1px solid skyblue;
+    background-color: $skyblue;
+    color: $white;
+    font-weight: bold;
+    padding: 8px 16px;
+    margin-top: 30px;
+  }

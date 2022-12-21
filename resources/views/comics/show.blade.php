@@ -1,13 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<section class="details">
     <div class="container">
-        <h2>{{ $comic->title }}</h2>
-        <div>{{ $comic->series }}</div>
-        <div>Sale date: {{ $comic->sale_date }}</div>
-        <div>Type: {{ $comic->type }}</div>
-        <div>Price: {{ $comic->price }}</div>
+        <div class="py-5">
+            <h2 class="pb-2">{{ $comic->title }}</h2>
+            <p>{{ $comic->description }}</p>
+            <div><strong>Series:</strong> {{ $comic->series }}</div>
+            <div><strong>Sale date:</strong> {{ $comic->sale_date }}</div>
+            <div><strong>Type:</strong> {{ $comic->type }}</div>
+            <div><strong>Price:</strong> {{ $comic->price }}</div>
+        </div>  
     </div>  
-</div>  
+</section>
 @endsection
